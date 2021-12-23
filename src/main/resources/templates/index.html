@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>PetShop - kisállat kereskedés</title>
+    <link rel="stylesheet"
+        href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+        crossorigin="anonymous">
+  <style>
+    .float_to_right {
+      float: right;
+    }
+
+    h1 {
+      margin: .5em 0;
+      color: coral;
+    }
+  </style>
+
+</head>
+<body>
+  <div class="container my-2" >
+    <form th:action="@{/logout}" method="post" class="float_to_right">
+      <p>Belépve, mint [[${#httpServletRequest.remoteUser}]]</p>
+      <input type="submit" class="float_to_right btn btn-basic btn-xs" value="Kilépés"/>
+    </form>
+
+    <h1 class="display-2">PetShop kisállatkereskedés</h1>
+    <h3 class="display-4">megvehető állatok listája:</h3>
+    <a th:href = "@{/addNewAnimal}" class="btn btn-primary btn-block">új állat hozzáadása</a>
+    <table class = "table table-striped table-responsive-md">
+      <tr>
+        <th>állatfaj magyarul</th>
+        <th>állatfaj angolul</th>
+        <th>állatfaj latinul</th>
+        <th>ár</th>
+        <th>készleten (db)</th>
+        <th>módosítás</th>
+      </tr>
+      <tr th:each="animals : ${listOfAnimals}">
+        <td th:text="${animals.animalSpeciesHUN}"></td>
+        <td th:text="${animals.animalSpeciesENG}"></td>
+        <td th:text="${animals.animalSpeciesLAT}"></td>
+        <td th:text="${animals.priceOne}"></td>
+        <td th:text="${animals.numberOfAnimals}"></td>
+        <td> <a th:href="@{/updateAnimal/{id}(id=${animals.id})}" class="btn btn-primary">módosít</a>
+          <a th:href="@{/deleteAnimal/{id}(id=${animals.id})}" class="btn btn-danger">töröl</a>
+        </td>
+      </tr>
+    </table>
+  </div>
+
+</body>
+</html>

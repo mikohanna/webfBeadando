@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>új állatfaj regisztrációja</title>
+    <link rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+          crossorigin="anonymous">
+
+</head>
+<body>
+    <div class="container">
+        <h1>Új állat regisztrálása</h1>
+        <form action="#" th:action="@{/saveAnimal}" th:object="${animal}" method="post">
+            <span>állatfaj magyar neve:</span>
+            <input type="text" th:field="*{animalSpeciesHUN}" class="form-control mb-4 col-4">
+            <span>állatfaj angol neve:</span>
+            <input type="text" th:field="*{animalSpeciesENG}" class="form-control mb-4 col-4">
+            <span>állatfaj latin neve:</span>
+            <input type="text" th:field="*{animalSpeciesLAT}" class="form-control mb-4 col-4">
+            <span>állat ára (1 db):</span>
+            <input type="number" th:field="*{priceOne}" class="form-control mb-4 col-4">
+            <span>hány darab van belőle:</span>
+            <input type="number" th:field="*{numberOfAnimals}" class="form-control mb-4 col-4">
+
+            <br>
+            <button type="submit" class="btn btn-info col-2">Állat hozzáadása</button>
+
+        </form>
+    </div>
+</body>
+</html>
