@@ -9,26 +9,26 @@
           crossorigin="anonymous">
 </head>
 <body>
-    <div class="container">
+<div class="container">
 
-        <h1>Állat adatainak módosítása</h1>
-        <form action="#" th:action="@{/saveAnimal}" th:object="${animal}" method="post">
-            <input type="hidden" th:field="*{id}">
-            <span>állatfaj magyar neve:</span>
-            <input type="text" th:field="*{animalSpeciesHUN}" class="form-control mb-4 col-4">
-            <span>állatfaj angol neve:</span>
-            <input type="text" th:field="*{animalSpeciesENG}" class="form-control mb-4 col-4">
-            <span>állatfaj latin neve:</span>
-            <input type="text" th:field="*{animalSpeciesLAT}" class="form-control mb-4 col-4">
-            <span>állat ára (1 db):</span>
-            <input type="number" th:field="*{priceOne}" class="form-control mb-4 col-4">
-            <span>hány darab van belőle:</span>
-            <input type="number" th:field="*{numberOfAnimals}" class="form-control mb-4 col-4">
+    <h1>Állat adatainak módosítása</h1>
+    <form action="#" th:action="@{/saveAnimal}" th:object="${animal}" method="post">
+        <input type="hidden" th:field="*{id}">
+        <span>állatfaj magyar neve:</span>
+        <input type="text" th:field="*{animalSpeciesHUN}" class="form-control mb-4 col-4">
+        <span>állatfaj angol neve:</span>
+        <input type="text" th:field="*{animalSpeciesENG}" class="form-control mb-4 col-4">
+        <span>állatfaj latin neve:</span>
+        <input type="text" th:field="*{animalSpeciesLAT}" class="form-control mb-4 col-4">
+        <span>állat ára (1 db):</span>
+        <input type="number" th:field="*{priceOne}" class="form-control mb-4 col-4">
+        <span>hány darab van belőle:</span>
+        <input type="number" th:field="*{numberOfAnimals}" class="form-control mb-4 col-4">
 
-            <br>
-            <button type="submit" class="btn btn-info col-2">Adatok módosítása</button>
+        <br>
+        <button type="submit" class="btn btn-info col-2">Adatok módosítása</button>
 
-        </form>
-    </div>
+    </form>
+</div>
 </body>
 </html>
